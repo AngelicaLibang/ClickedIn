@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"  />
+    <link rel="stylesheet" href="./css/styles-navbar.css"  />
+    <link rel="stylesheet" href="./css/styles-footer.css"  />
+    <link rel="stylesheet" href="./css/styles-cards.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function showProfileDropdown() {
+            document.getElementById("profile-dropdown-menu").classList.add("show");
+        }
+
+        function hideProfileDropdown() {
+            document.getElementById("profile-dropdown-menu").classList.remove("show");
+        }
+
+        function showWishlistModal() {
+            // Your code to show the Wishlist Modal
+        }
+
+        function showCartModal() {
+            // Your code to show the Cart Modal
+        }
+    </script>
+    <!-- Add your Bootstrap and other scripts here -->
+    <script>
+        async function getData(data) {
+            let my_obj = await fetch(data);
+            let my_text = await my_obj.text();
+            let shop = JSON.parse(my_text);
+            console.log(shop);
+
+            // shop.images.forEach(image => {
+            //     image.items.forEach(item => {
+                for (let category of shop) {
+  for (let item of category.items) {
+    for (let classification of item.classification) {
+      console.log("Current Classification:", classification);
+
+      let productCard =
+        '<div class="col-lg-2 mb-4"><div class="card"><img src="' +
+        classification.image +
+        '" class="card-img-top" alt="product" /><div class="card-body"><p > <a href="#" id="des-text">' +
+        classification.description +
+        '</a></p><strong>Brand: </strong><span id="brand">' +
+        classification.brand +
+        '</span><br /><strong>Color: </strong><span id="color">' +
+        classification.color +
+        '</span><br /><br /><strong>Price: </strong><span id="price">' +
+        classification.price +
+        '</span><br /></div></div></div>';
+      $("#shop_display").append(productCard);
+    }
+  }
+}
+};
+        getData("http://localhost:3001/api/shop");
+    </script>
+    <title>ClickedIn</title>
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-md navbar-light fixed-top">
+            <div class="container-fluid mt-0">
+                <!-- Logo/Brand -->
+                <a class="navbar-brand" href="#">
+                    <img src="./img/Logo2.png" class="img-fluid" alt="logo" style="width: 150px">
+                </a>
+
+                <!-- Toggle button for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar items -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <!-- Search Form -->
+                            <form class="form-inline search-bar me-3">
+                                <input class="form-control search-input" type="search" placeholder="ex. Women top" aria-label="Search">
+                                <button id="nav-search" type="submit">Search</button>
+                            </form>
+                        </li>
+
+                        <!-- Profile Dropdown -->
+                        <li>
+                            <!-- Dropdown -->
+                            <div class="dropdown" onmouseover="showProfileDropdown()" onmouseout="hideProfileDropdown()">
+                                <button class="btn btn-link dropdown-toggle" type="button" id="profile-dropdown"
+                                    style="color: none; text-decoration: none;" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <img src="./img/new-profile.png" alt="profile logo" style="width: 20px;">
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="profile-dropdown" id="profile-dropdown-menu"
+                                    onmouseover="showProfileDropdown()" onmouseout="hideProfileDropdown()">
+                                    <a class="dropdown-item" href="#">My Profile</a>
+                                    <a class="dropdown-item" href="#">My Orders</a>
+                                    <a class="dropdown-item" href="#">My Message1</a>
+                                    <a class="dropdown-item" href="#">My Coupons</a>
+                                    <a class="dropdown-item" href="#">My Points</a>
+                                    <a class="dropdown-item" href="#">Recently Viewed</a>
+                                    <a class="dropdown-item" href="#">More Services</a>
+                                    <a class="dropdown-item" href="#">Sign Out</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Wishlist Modal -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showWishlistModal()">
+                                <img style="width: 20px;" src="./img/new-heart.png" alt="wishlist">
+                            </a>
+                        </li>
+
+                        <!-- Support Dropdown -->
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-link dropdown-toggle" type="button" id="support-dropdown"
+                                    style="color: black; text-decoration: none;" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <img src="./img/new-support.png" alt="service logo" style="width: 20px;">
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="support-dropdown">
+                                    <a class="dropdown-item" href="#">Customer Service</a>
+                                    <a class="dropdown-item" href="#">What can we do for you?</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Cart Modal -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showCartModal()">
+                                <img style="width: 20px;" src="./img/new-cart.png" alt="cart logo">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <nav class="secondary-navbar">
+            <ul>
+                <li><a href="#">New In</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">Women Clothing</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Men Fashion</a></li>
+                <li><a href="#">Curve</a></li>
+                <li><a href="#">Shoes</a></li>
+                <li><a href="#">Jewelry & Accessories</a></li>
+                <li><a href="#">Underwear & Sleepwear</a></li>
+                <li><a href="#">Baby & Maternity</a></li>
+                <li><a href="#">Bags & Luggage</a></li>
+                <li><a href="#">Home & Kitchen</a></li>
+                <li><a href="#">Beauty & Health</a></li>
+            </ul>
+        </nav>
+         <!-- Space -->
+         <div class="d-flex" style="height: 2px">
+            <div class="vr"></div>
+        </div>
+
+        <!-- Carousel -->
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/carousel7.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/carousel6.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/carousel5.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/carousel4.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+         <!-- Space -->
+         <div class="d-flex" style="height: 5px">
+            <div class="vr"></div>
+        </div>
+
+        <section id="recommended-section">
+            <div class="container">
+                <h2>Recommend</h2>
+                <div class="row" id="recommended-products">
+                    <div class="col-lg-2 mb-4">
+                        <!-- Product Card 1 -->
+                        <div class="card">
+                            <img src="img/1.png" class="card-img-top" alt="Product 1">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 mb-4">
+                        <!-- Product Card 2 -->
+                        <div class="card">
+                            <img src="img/2.png" class="card-img-top" alt="Product 2">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 mb-4">
+                        <!-- Product Card 3 -->
+                        <div class="card">
+                            <img src="img/3.png" class="card-img-top" alt="Product 3">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 mb-4">
+                        <!-- Product Card 4 -->
+                        <div class="card">
+                            <img src="img/4.png" class="card-img-top" alt="Product 4">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 mb-4">
+                        <!-- Product Card 5 -->
+                        <div class="card">
+                            <img src="img/5.png" class="card-img-top" alt="Product 5">
+                        </div>
+                    </div>
+                    <div class="col-lg-2 mb-4">
+                        <!-- Product Card 6 -->
+                        <div class="card">
+                            <img src="img/6.png" class="card-img-top" alt="Product 6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+           <!-- Space -->
+         <div class="d-flex" style="height: 2px">
+            <div class="vr"></div>
+        </div>
+
+        <hr class="dark-line">
+            <!-- Space -->
+            <div class="d-flex" style="height: 20px">
+                <div class="vr"></div>
+            </div>
+
+        <!--Shop Cards-->
+        <div class="container">
+          <div class="row" id="shop_display"></div>
+        </div>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 footer-column">
+                    <h5>COMPANY INFO</h5>
+                    <ul class="list-unstyled">
+                        <li>About ClickedIn</li>
+                        <li>Fashion Blogger</li>
+                        <li>Sustainability</li>
+                        <li>Careers</li>
+                        <li>#BeClickedInmodels</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-column">
+                    <h5>HELP & SUPPORT</h5>
+                    <ul class="list-unstyled">
+                        <li>Shipping Info</li>
+                        <li>Returns</li>
+                        <li>Refund</li>
+                        <li>How To Order</li>
+                        <li>How To Track</li>
+                        <li>Size Guide</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-column">
+                    <h5>CUSTOMER CARE</h5>
+                    <ul class="list-unstyled">
+                        <li>Contact Us</li>
+                        <li>Payment Method</li>
+                        <li>Bonus Point</li>
+                        <li>ClickedIn VIP</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 footer-column">
+                    <h5>FIND US ON</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <img src="./img/FB.png" alt="Facebook Logo" class="footer-logo">
+                        </li>
+                        <li class="list-inline-item">
+                            <img src="./img/insta.png" alt="Instagram Logo" class="footer-logo">
+                        </li>
+                        <li class="list-inline-item">
+                            <img src="./img/tiktok.webp" alt="Tiktok Logo" class="footer-logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-end footer-column">
+                    <p id="subscribe-text">SIGN UP FOR CLICKEDIN STYLE NEWSLETTER</p>
+
+                    <form class="subscribe-form">
+                        <input type="email" class="form-control" placeholder="Your Email Address" required>
+                        <input type="tel" class="form-control" placeholder="PH +63 Contact Number" required>
+                        <button type="submit" class="btn btn-dark">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="row" id="footer-down">
+                <div class="col-md-12 py-0">
+                    <p>&copy;2009-2024 ClickedIn All Rights Reserved</p>
+                    <p>
+                        <a href="#">Privacy Center</a> | 
+                        <a href="#">Privacy & Cookie Policy</a> | 
+                        <a href="#">Terms & Conditions</a> | 
+                        <a href="#">IP Notice</a> | 
+                        <a href="#">Imprint</a> | 
+                        <a href="#">Ad Choice</a>
+                        <br>
+                    </p>
+                    <p>Philippines</p>
+                    <p>
+                        This site is protected by Trustwave's Trusted Commerce program 
+                        <a href="#">DMCA.com Protection Status</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

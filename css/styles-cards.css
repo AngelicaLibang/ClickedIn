@@ -1,0 +1,42 @@
+#des-text {
+  font-size: 15px; /* Adjust the font size for the description */
+  font-weight: bold; /* Make the description bold */
+  color: #000000; /* Set the text color */
+  overflow: hidden; /* Hide any overflowing content */
+  text-overflow: ellipsis; /* Display an ellipsis (...) when the text overflows */
+}
+
+.card {
+  width: 100%; /* Make the card take up the full width of its container */
+  height: 100%; /* Set a fixed height for the cards */
+  border: 1px solid #ddd; /* Add a border for better separation */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(5, 5, 5, 0.1); /* Add a subtle box shadow */
+}
+
+.card-img-top {
+  width: 100%; /* Ensure the image takes up the full width of the card */
+  height: auto; /* Maintain aspect ratio for the image */
+  border-top-left-radius: 10px; /* Rounded corners for the top-left */
+  border-top-right-radius: 10px; /* Rounded corners for the top-right */
+}
+
+.card-img-top:hover {
+  transform: scale(1.1); /* Zoom in by 10% on hover */
+}
+
+#recommended-section {
+  background-color: #f8f9fa; /* Background color for the recommended section */
+  padding: 50px 50px; /* Add some padding for better spacing */
+}
+
+#recommended-section h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  text-decoration: solid;
+}
+
+#recommended-products {
+  display: flex;
+  justify-content: space-around;
+}

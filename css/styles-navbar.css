@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+.navbar {
+  box-shadow: 10%;
+  background-color: rgb(246, 238, 233);
+  margin-bottom: 10px;
+}
+
+#carouselExampleAutoplaying {
+  margin-top: 139px;
+}
+.navbar-brand {
+  margin-right: auto;
+}
+
+#nav-search {
+  border-color: white;
+  border-radius: 15%;
+  transition: ease-in 0.2s;
+}
+
+#nav-search:hover {
+  border-radius: 15%;
+  border-color: #ffffff;
+  background-color: rgb(234, 194, 167);
+}
+
+/* Add space between navbar items */
+.navbar-nav {
+  margin-left: auto;
+}
+.nav-link:hover {
+  color: #ffffff;
+  background-color: rgb(234, 194, 167);
+  border-radius: 15%;
+  transition: ease-in 0.2s;
+}
+/* Style the search bar */
+.search-bar {
+  display: flex;
+  align-items: left;
+  border-radius: 20%;
+}
+
+.search-input {
+  margin-right: 5px;
+}
+
+.dropdown:hover {
+  color: #ffffff;
+  background-color: rgb(234, 194, 167);
+  border-radius: 15%;
+  transition: ease-in 0.2s;
+}
+/* Add this style to your CSS or create a new CSS file */
+.secondary-navbar {
+    position: fixed;
+    width: 100%;
+    background-color:#F6EEE9; /* Set background color */
+    padding: 2px 0; /* Add padding for spacing */
+    z-index: 1000; /* Set a higher z-index to ensure it appears above other content */
+    box-shadow: 0px 2px 4px rgb(42, 41, 41);
+}
+
+.secondary-navbar ul {
+    list-style: none; /* Remove list bullets */
+    margin-top: 12vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.secondary-navbar li {
+    display: inline;
+}
+
+.secondary-navbar a {
+    text-decoration: none;
+    color: rgb(3, 3, 3);
+    padding: 2px 2px;
+    transition: background-color 0.3s ease; /* Add a smooth transition for background color */
+}
+
+.secondary-navbar a:hover {
+    background-color: rgb(234, 194, 167); /* Change background color on hover */
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.vr {
+  margin-left: 8%;
+}
+
+
+.promo:hover {
+  cursor: pointer;
+}
+
+.row {
+  margin: 0%;
+  padding: 0%;
+  display: flex;
+  justify-content: center;
+}
+
+#morebtn {
+  background-color: rgb(246, 238, 233);
+  border: #ffffff;
+  color: rgb(133, 133, 133);
+}
+
+.center-content {
+  text-align: center;
+}
+
+#morebtn:hover {
+  background-color: rgb(234, 194, 167);
+  color: black;
+}
+
+.dark-line {
+  border: none;
+  height: 2px; /* Set the height of the line */
+  background-color: #fd0404; /* Set the color of the line */
+  margin: 20px 0; /* Add margin for spacing */
+}

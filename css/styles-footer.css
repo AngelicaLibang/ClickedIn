@@ -1,0 +1,36 @@
+/** @format */
+
+footer {
+  background-color: rgb(246, 238, 233);
+  padding: 20px 0;
+  color: #495057;
+  letter-spacing: -2px -2px;
+  box-shadow: 4px 2px 10px rgb(0, 0, 0);
+}
+
+.footer-column {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.subscribe-form {
+  display: flex;
+  text-align: left;
+}
+#subscribe-text {
+  font-size: 15px;
+  text-align: left;
+  line-height: 2px;
+}
+#footer-down {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 10px;
+  line-height: 0%;
+}
